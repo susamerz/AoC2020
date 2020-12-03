@@ -6,7 +6,6 @@ with open('input2') as fi:
         (conditions, passwd) = line.split(':')
         (numbers, testchar)=conditions.split(' ')
         (lower,upper)= numbers.split("-")
-        print(passwd[int(lower)+1])
         if((passwd[int(lower)]==testchar) ^ (passwd[int(upper)]==testchar)):
             counter_part2 = counter_part2+1
         numchars = re.findall(testchar,passwd)
