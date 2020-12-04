@@ -14,7 +14,7 @@ current_passport = dict()
 valids=0
 with open('input_D4')as fi:
     for line in fi:
-        if (line == "\n" or line == "eof"):
+        if (line == "\n"):
             valids += check_passport(current_passport)
             current_passport = dict()
         else:
