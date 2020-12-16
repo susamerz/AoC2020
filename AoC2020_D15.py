@@ -1,18 +1,17 @@
 #starting = [0,3,6] # test output, solution should be 436
 starting = [2, 0, 6, 12, 1, 3]
 
-def next_number(prev_sequence):
-    sub_sequence = prev_sequence[0:-1]
-    if not prev_sequence[-1] in sub_sequence:
-        return(0)
+spoken = dict()
+for i in starting[:-1]:
+    spoken[i]=starting.index(i)
+num = starting[-1]
+for i in range(len(starting)-1,29999999):
+    if num in spoken:
+        next_num = i- spoken[num]
+        spoken[num] = i
+        num = next_num
     else:
-        sub_sequence.reverse()
-        dist_to_last = sub_sequence.index(prev_sequence[-1])
-        return dist_to_last+1
+        spoken[num] = i
+        num = 0
 
-
-spoken = starting.copy()
-for i in range(len(starting),30000000):
-    num = next_number(spoken)
-    spoken.append(num)
-print(f'solution 1 is {spoken[29999999]}')
+print(f'solution is {num}')
